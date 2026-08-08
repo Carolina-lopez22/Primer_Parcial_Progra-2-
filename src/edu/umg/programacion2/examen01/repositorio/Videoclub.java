@@ -153,8 +153,26 @@ public class Videoclub {
 	 *   excepción.
 	 */
 	public Pelicula peliculaMasAntiguaDeGenero(String genero) {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar peliculaMasAntiguaDeGenero() en Videoclub");
+	    List<Pelicula> peliculasGenero = new ArrayList<>();
+
+	    for (Pelicula pelicula : peliculas) {
+	        if (pelicula.getGenero().equals(genero)) {
+	            peliculasGenero.add(pelicula);
+	        }
+	    }
+	    if (peliculasGenero.isEmpty()) {
+	        return null;
+	    }
+
+	    Pelicula masAntigua = peliculasGenero.get(0);
+
+	    for (Pelicula pelicula : peliculasGenero) {
+	        if (pelicula.getAnioEstreno() < masAntigua.getAnioEstreno()) {
+	            masAntigua = pelicula;
+	        }
+	    }
+
+	    return masAntigua;
 	}
 
 	/**
