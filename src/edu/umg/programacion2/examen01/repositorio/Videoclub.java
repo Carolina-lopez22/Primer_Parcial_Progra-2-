@@ -89,9 +89,15 @@ public class Videoclub {
 	 * - Si el catálogo está vacío, retorna un Map vacío (no null).
 	 */
 	public Map<String, Integer> contarPeliculasPorGenero() {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar contarPeliculasPorGenero() en Videoclub");
+		Map<String, Integer> contar = new HashMap<>();
+		for (Pelicula peli : peliculas) {
+			String genero=peli.getGenero();
+			
+		int cantidaActual = contar.getOrDefault(genero, 0);
+		contar.put(genero, cantidaActual +1);
 	}
+		return contar;
+	}// Practica 1 completada 
 
 	/**
 	 * PREGUNTA PRÁCTICA 2 (20 pts): completar buscarPorTituloParcial().
